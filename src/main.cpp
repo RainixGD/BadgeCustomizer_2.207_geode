@@ -6,10 +6,13 @@
 
 #include "./BadgeCustomizerManager.h"
 
+#include "./ErrorsManager/ErrorsManager.h"
+
 class $modify(MenuLayer) {
 	bool init() {
 		if (!MenuLayer::init()) return false;
-		BadgeCustomizerManager::getInstance()->onMenuLayer(this);
+		BadgeCustomizerManager::getInstance(); // to load all the json errors
+		ErrorsManager::onMenuLayer(this);
 		return true;
 	}
 };

@@ -12,7 +12,10 @@ include_directories(
 
 add_library(${PROJECT_NAME} SHARED
     src/main.cpp
- "src/BadgeCustomizerManager.cpp" "src/BadgeCustomizerManager.h")
+    src/BadgeCustomizerManager.cpp
+    src/ErrorsManager/ErrorsManager.cpp
+    src/ErrorsManager/ErrorsPopup.cpp
+)
 
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable to point to Geode")

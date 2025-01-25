@@ -16,26 +16,20 @@
 }(value)
 
 class BadgeCustomizerManager {
-	enum DataLoadingResult {
-		OK,
-		FileNotFound,
-		ParsingError
-	};
+	bool isOk = false;
 	std::unordered_map<unsigned int, std::string> badges;
-	DataLoadingResult loadingStatus;
 	static BadgeCustomizerManager* instance;
 
 	void init();
 
 	bool can_convert_to_int(const std::string& str);
 
-	DataLoadingResult loadData();
-	void createErrorLabel(CCLayer* layer);
+	bool hasFileExtension(const std::string& fileName, const std::string& extension);
+	bool loadData();
 
 	BadgeCustomizerManager() {};
 public:
 
-	void onMenuLayer(CCLayer* layer);
 	void onProfilePage_loadPageFromUserInfo(ProfilePage* self, GJUserScore* score);
 	void onCommentCell_loadFromComment(CommentCell* cell, GJComment* comment);
 
